@@ -11,7 +11,36 @@ namespace RotateMatrix
         /// <exception cref="ArgumentNullException">Throw when source matrix is null.</exception>
         public static void Rotate90DegreesClockwise(this int[,]? matrix)
         {
-            throw new NotImplementedException();
+            if (matrix is null)
+            {
+                throw new ArgumentNullException(nameof(matrix));
+            }
+
+            int size = (int)Math.Sqrt(matrix.Length);
+            int[,] tempMat = new int[size, size];
+            for (int i = 0; i < size; i++)
+            {
+                for (int j = 0; j < size; j++)
+                {
+                    tempMat[i, j] = matrix[i, j];
+                }
+            }
+
+            for (int i = 0; i < size; i++)
+            {
+                for (int j = 0; j < size; j++)
+                {
+                    tempMat[j, size - i - 1] = matrix[i, j];
+                }
+            }
+
+            for (int i = 0; i < size; i++)
+            {
+                for (int j = 0; j < size; j++)
+                {
+                    matrix[i, j] = tempMat[i, j];
+                }
+            }
         }
 
         /// <summary>
@@ -21,7 +50,36 @@ namespace RotateMatrix
         /// <exception cref="ArgumentNullException">Throw when source matrix is null.</exception>
         public static void Rotate90DegreesCounterClockwise(this int[,]? matrix)
         {
-            throw new NotImplementedException();
+            if (matrix is null)
+            {
+                throw new ArgumentNullException(nameof(matrix));
+            }
+
+            int size = (int)Math.Sqrt(matrix.Length);
+            int[,] tempMat = new int[size, size];
+            for (int i = 0; i < size; i++)
+            {
+                for (int j = 0; j < size; j++)
+                {
+                    tempMat[i, j] = matrix[i, j];
+                }
+            }
+
+            for (int i = 0; i < size; i++)
+            {
+                for (int j = 0; j < size; j++)
+                {
+                    tempMat[size - j - 1, i] = matrix[i, j];
+                }
+            }
+
+            for (int i = 0; i < size; i++)
+            {
+                for (int j = 0; j < size; j++)
+                {
+                    matrix[i, j] = tempMat[i, j];
+                }
+            }
         }
 
         /// <summary>
@@ -31,7 +89,36 @@ namespace RotateMatrix
         /// <exception cref="ArgumentNullException">Throw when source matrix is null.</exception>
         public static void Rotate180DegreesClockwise(this int[,]? matrix)
         {
-            throw new NotImplementedException();
+            if (matrix is null)
+            {
+                throw new ArgumentNullException(nameof(matrix));
+            }
+
+            int size = (int)Math.Sqrt(matrix.Length);
+            int[,] tempMat = new int[size, size];
+            for (int i = 0; i < size; i++)
+            {
+                for (int j = 0; j < size; j++)
+                {
+                    tempMat[i, j] = matrix[i, j];
+                }
+            }
+
+            for (int i = 0; i < size; i++)
+            {
+                for (int j = 0; j < size; j++)
+                {
+                    tempMat[size - 1 - i, size - j - 1] = matrix[i, j];
+                }
+            }
+
+            for (int i = 0; i < size; i++)
+            {
+                for (int j = 0; j < size; j++)
+                {
+                    matrix[i, j] = tempMat[i, j];
+                }
+            }
         }
 
         /// <summary>
@@ -41,7 +128,12 @@ namespace RotateMatrix
         /// <exception cref="ArgumentNullException">Throw when source matrix is null.</exception>
         public static void Rotate180DegreesCounterClockwise(this int[,]? matrix)
         {
-            throw new NotImplementedException();
+            if (matrix is null)
+            {
+                throw new ArgumentNullException(nameof(matrix));
+            }
+
+            Rotate180DegreesClockwise(matrix);
         }
 
         /// <summary>
@@ -51,7 +143,12 @@ namespace RotateMatrix
         /// <exception cref="ArgumentNullException">Throw when source matrix is null.</exception>
         public static void Rotate270DegreesClockwise(this int[,]? matrix)
         {
-            throw new NotImplementedException();
+            if (matrix is null)
+            {
+                throw new ArgumentNullException(nameof(matrix));
+            }
+
+            Rotate90DegreesCounterClockwise(matrix);
         }
 
         /// <summary>
@@ -61,7 +158,12 @@ namespace RotateMatrix
         /// <exception cref="ArgumentNullException">Throw when source matrix is null.</exception>
         public static void Rotate270DegreesCounterClockwise(this int[,]? matrix)
         {
-            throw new NotImplementedException();
+            if (matrix is null)
+            {
+                throw new ArgumentNullException(nameof(matrix));
+            }
+
+            Rotate90DegreesClockwise(matrix);
         }
 
         /// <summary>
@@ -71,7 +173,10 @@ namespace RotateMatrix
         /// <exception cref="ArgumentNullException">Throw when source matrix is null.</exception>
         public static void Rotate360DegreesClockwise(this int[,]? matrix)
         {
-            throw new NotImplementedException();
+            if (matrix is null)
+            {
+                throw new ArgumentNullException(nameof(matrix));
+            }
         }
 
         /// <summary>
@@ -81,7 +186,10 @@ namespace RotateMatrix
         /// <exception cref="ArgumentNullException">Throw when source matrix is null.</exception>
         public static void Rotate360DegreesCounterClockwise(this int[,]? matrix)
         {
-            throw new NotImplementedException();
+            if (matrix is null)
+            {
+                throw new ArgumentNullException(nameof(matrix));
+            }
         }
     }
 }
